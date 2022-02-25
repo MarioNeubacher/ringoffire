@@ -9,11 +9,14 @@ import { Game } from 'src/models/game';
 export class GameComponent implements OnInit {
 
   pickCardAnimation = false;
-  game: Game;
+  currentCard: string = '';
+  game: Game; //variable works if strict set to false in tsconfig.json
 
   constructor() { }
 
   ngOnInit(): void {
+    this.newGame();
+    console.log(this.game); 
   }
 
   newGame() {
@@ -21,6 +24,8 @@ export class GameComponent implements OnInit {
   }
 
   takeCard() {
+    this.currentCard = this.game.stack.pop(); //pop takes last value of array and deletes it
+    console.log(this.currentCard);
     this.pickCardAnimation = true;
   }
 
