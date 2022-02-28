@@ -12,6 +12,7 @@ import { DialogAddPlayerComponent } from './dialog-add-player/dialog-add-player.
 import { MatDialogModule } from '@angular/material/dialog';
 import { FormsModule } from '@angular/forms';
 import { MatFormFieldModule } from '@angular/material/form-field';
+import { MatInputModule } from '@angular/material/input';
 
 @NgModule({
   declarations: [
@@ -25,10 +26,11 @@ import { MatFormFieldModule } from '@angular/material/form-field';
     MatFormFieldModule,
     BrowserModule,
     AppRoutingModule,
+    BrowserAnimationsModule,
     MatButtonModule, //imported from angular material library
     MatIconModule, //#
-    MatDialogModule, // #
-    BrowserAnimationsModule,
+    MatDialogModule, //#
+    MatInputModule, //#
     FormsModule, //#
   ],
   providers: [],
