@@ -28,7 +28,7 @@ export class GameComponent implements OnInit {
   }
 
   takeCard() {
-    if (this.game.players.length >= 2) {
+    if (this.game.players.length < 2) {
       this.tooFewPlayers = true;
     }
     if (!this.pickCardAnimation) { 

@@ -30,7 +30,7 @@ export class GameInfoComponent implements OnInit, OnChanges {
   @Input() card: string;
 
   game: Game;
-  tooFewPlayers: tooFewPlayers;
+  gamecomponent: GameComponent;
 
   constructor() { }
 
@@ -40,7 +40,7 @@ export class GameInfoComponent implements OnInit, OnChanges {
 
   newGame() {
     this.game = new Game();
-    this.tooFewPlayers = new GameComponent();
+    this.gamecomponent = new GameComponent();
   }
 
   ngOnChanges(): void { //void only functions, doesnt give true/false back
