@@ -1,4 +1,6 @@
 import { Component, Input, OnChanges, OnInit } from '@angular/core';
+import { Game } from 'src/models/game';
+import { GameComponent } from '../game/game.component';
 
 @Component({
   selector: 'app-game-info',
@@ -27,10 +29,18 @@ export class GameInfoComponent implements OnInit, OnChanges {
   description = '';
   @Input() card: string;
 
+  game: Game;
+  tooFewPlayers: tooFewPlayers;
+
   constructor() { }
 
   ngOnInit(): void {
+    this.newGame();
+  }
 
+  newGame() {
+    this.game = new Game();
+    this.tooFewPlayers = new GameComponent();
   }
 
   ngOnChanges(): void { //void only functions, doesnt give true/false back

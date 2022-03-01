@@ -11,6 +11,8 @@ import { DialogAddPlayerComponent } from '../dialog-add-player/dialog-add-player
 export class GameComponent implements OnInit {
 
   pickCardAnimation = false;
+  tooFewPlayers = false;
+  
   currentCard: string = '';
   game: Game; //variable works if strict set to false in tsconfig.json
 
@@ -26,6 +28,9 @@ export class GameComponent implements OnInit {
   }
 
   takeCard() {
+    if (this.game.players.length >= 2) {
+      this.tooFewPlayers = true;
+    }
     if (!this.pickCardAnimation) { 
       this.currentCard = this.game.stack.pop(); //pop takes last value of array and deletes it
       this.pickCardAnimation = true; //not possible to take card until timeout

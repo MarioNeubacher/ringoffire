@@ -3,6 +3,7 @@
     height: 100vh;
     max-width: 100%; //no scrollbar
     background-image: url('/assets/img/board.jpg');
+    background-size: cover;
     display: flex;
     justify-content: center;
     align-items: center;
@@ -59,7 +60,11 @@
 .btn-add {
     position: absolute;
     right: 32px;
-    bottom: 32px;
+    bottom: 48px;
+
+    &:hover {
+        transform: scale(1.05) translateY(-1px);
+     }
 }
 
 .pin-bottom {

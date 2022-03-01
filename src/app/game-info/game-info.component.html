@@ -1,7 +1,7 @@
-<mat-card>
+<mat-card [class.div-jump]="this.tooFewPlayers">
 
-    <mat-card-title>{{ card ? title : 'Please pick a card' }}</mat-card-title> <!-- if ? then : else -->
+    <mat-card-title>{{ card ? title : 'Add at least two players' }}</mat-card-title> <!-- if ? then : else -->
     <mat-card-content>
-            {{ card ? description : 'Please click on the card stack to select the next card' }}
+            {{ card ? description : 'Then start by clicking on the card stack' }}
     </mat-card-content>
 </mat-card>
