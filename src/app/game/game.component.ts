@@ -29,8 +29,11 @@ export class GameComponent implements OnInit {
     if (!this.pickCardAnimation) { 
       this.currentCard = this.game.stack.pop(); //pop takes last value of array and deletes it
       this.pickCardAnimation = true; //not possible to take card until timeout
-      console.log('New card' + this.currentCard);
-      console.log('Game is', this.game);
+     /*  console.log('New card' + this.currentCard);
+      console.log('Game is', this.game); */
+
+      this.game.currentPlayer++;
+      this.game.currentPlayer = this.game.currentPlayer % this.game.players.length; //% modulu only counts until max length
 
       setTimeout(() => {
         this.game.playedCards.push(this.currentCard); //game.html *ngFor="let card of game.playedCards"
@@ -43,7 +46,9 @@ export class GameComponent implements OnInit {
     const dialogRef = this.dialog.open(DialogAddPlayerComponent);
 
     dialogRef.afterClosed().subscribe((name: string) => { //
-      this.game.players.push(name);
+      if (name && name.length > 0) { //does name exist, name = true? and when y only when length > 0
+        this.game.players.push(name);
+      }
     });
   }
 }
