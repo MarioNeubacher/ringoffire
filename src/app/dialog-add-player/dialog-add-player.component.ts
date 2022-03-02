@@ -1,6 +1,7 @@
 import { Component, OnInit } from '@angular/core';
 import { MatDialogRef } from '@angular/material/dialog';
 import { Game } from 'src/models/game';
+import { setInterval } from 'timers';
 import { GameserviceService } from '../gameservice.service';
 
 @Component({
@@ -15,11 +16,13 @@ export class DialogAddPlayerComponent implements OnInit {
   constructor(public dialogRef: MatDialogRef<DialogAddPlayerComponent>, public letterCheck: GameserviceService) { }
 
   ngOnInit(): void {
-    this.checkLetter();
+    setInterval(() => {
+      this.checkLetter();
+    }, 10);
   }
 
   checkLetter() {
-    if (name.match(/[a-z]/i)) {
+    if (this.name.match(/[a-z]/i)) {
       this.letterCheck.playerNameContainsLetters = true;
     }
   }
