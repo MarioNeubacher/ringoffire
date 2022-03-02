@@ -1,6 +1,6 @@
 import { Component, Input, OnChanges, OnInit } from '@angular/core';
 import { Game } from 'src/models/game';
-import { GameComponent } from '../game/game.component';
+import { GameserviceService } from '../gameservice.service';
 
 @Component({
   selector: 'app-game-info',
@@ -18,10 +18,10 @@ export class GameInfoComponent implements OnInit, OnChanges {
     { title: 'Chicks', description: 'All girls drink.' },
     { title: 'Heaven', description: 'Put your hands up! The last player drinks!' },
     { title: 'Mate', description: 'Pick a mate. Your mate must always drink when you drink and the other way around.' },
-    { title: 'Thumbmaster', description: '' },
+    { title: 'Thumbmaster', description: 'The player who drew the card must put their thumb on the table at a chosen time (before the next five gets picked though, or they lose the right). The last person to put their thumb on the table must drink.' },
     { title: 'Men', description: 'All men drink.' },
-    { title: 'Quizmaster', description: '' },
-    { title: 'Never have i ever...', description: 'Say something you nnever did. Everyone who did it has to drink.' },
+    { title: 'Quizmaster', description: 'The player becomes the Quizmaster. He must clearly say for all to hear, "I am the Quizmaster!" Whoever answers one of his questions without putting "Mister Quizmaster" after the answer must finish his drink.' },
+    { title: 'Never have i ever...', description: 'Say something you never did. Everyone who did it has to drink.' },
     { title: 'Rule', description: 'Make a rule. Everyone needs to drink when he breaks the rule.' },
   ];
 
@@ -30,9 +30,8 @@ export class GameInfoComponent implements OnInit, OnChanges {
   @Input() card: string;
 
   game: Game;
-  gamecomponent: GameComponent;
 
-  constructor() { }
+  constructor(public gameVariable: GameserviceService) { }
 
   ngOnInit(): void {
     this.newGame();
@@ -40,7 +39,6 @@ export class GameInfoComponent implements OnInit, OnChanges {
 
   newGame() {
     this.game = new Game();
-    this.gamecomponent = new GameComponent();
   }
 
   ngOnChanges(): void { //void only functions, doesnt give true/false back

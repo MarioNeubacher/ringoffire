@@ -2,6 +2,7 @@ import { Component, OnInit } from '@angular/core';
 import { Game } from 'src/models/game';
 import { MatDialog } from '@angular/material/dialog';
 import { DialogAddPlayerComponent } from '../dialog-add-player/dialog-add-player.component';
+import { GameserviceService } from '../gameservice.service';
 
 @Component({
   selector: 'app-game',
@@ -11,12 +12,11 @@ import { DialogAddPlayerComponent } from '../dialog-add-player/dialog-add-player
 export class GameComponent implements OnInit {
 
   pickCardAnimation = false;
-  tooFewPlayers = false;
   
   currentCard: string = '';
   game: Game; //variable works if strict set to false in tsconfig.json
 
-  constructor(public dialog: MatDialog) { }
+  constructor(public dialog: MatDialog, public gameVariable: GameserviceService) { }
 
   ngOnInit(): void {
     this.newGame();
@@ -27,11 +27,14 @@ export class GameComponent implements OnInit {
     this.game = new Game();
   }
 
+
   takeCard() {
     if (this.game.players.length < 2) {
-      this.tooFewPlayers = true;
-    }
-    if (!this.pickCardAnimation) { 
+      this.gameVariable.tooFewPlayers = true; //gameservice, gameinfo 
+      setTimeout(() => {
+        this.gameVariable.tooFewPlayers = false;
+      }, 1000);
+    } else if (!this.pickCardAnimation) { 
       this.currentCard = this.game.stack.pop(); //pop takes last value of array and deletes it
       this.pickCardAnimation = true; //not possible to take card until timeout
      /*  console.log('New card' + this.currentCard);
@@ -51,7 +54,7 @@ export class GameComponent implements OnInit {
     const dialogRef = this.dialog.open(DialogAddPlayerComponent);
 
     dialogRef.afterClosed().subscribe((name: string) => { //
-      if (name && name.length > 0) { //does name exist, name = true? and when y only when length > 0
+      if (name && name.length > 0) { 
         this.game.players.push(name);
       }
     });
