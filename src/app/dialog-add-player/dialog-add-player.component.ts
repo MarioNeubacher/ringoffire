@@ -16,12 +16,14 @@ export class DialogAddPlayerComponent implements OnInit {
   ngOnInit(): void {
     setInterval(() => {
       this.checkLetter();
-    }, 10);
+    }, 0.001);
   }
 
   checkLetter() {
     if (this.name.match(/[a-z]/i)) {
       this.letterCheck.playerNameContainsLetters = true;
+    } else {
+      this.letterCheck.playerNameContainsLetters = false;
     }
   }
 
