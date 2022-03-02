@@ -1,7 +1,5 @@
 import { Component, OnInit } from '@angular/core';
 import { MatDialogRef } from '@angular/material/dialog';
-import { Game } from 'src/models/game';
-import { setInterval } from 'timers';
 import { GameserviceService } from '../gameservice.service';
 
 @Component({

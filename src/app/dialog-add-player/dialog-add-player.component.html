@@ -10,5 +10,5 @@
 
 <div mat-dialog-actions>
   <button mat-button (click)="onNoClick()">No Thanks</button>
-  <button mat-button [disabled]="name.length == 0 || letterCheck.playerNameContainsLetters" [mat-dialog-close]="name" cdkFocusInitial>Ok</button>
+  <button mat-button [disabled]="name.length == 0 || letterCheck.playerNameContainsLetters == true" [mat-dialog-close]="name" cdkFocusInitial>Ok</button>
 </div>
