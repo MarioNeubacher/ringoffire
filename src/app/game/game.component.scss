@@ -86,3 +86,31 @@
     left: 100px;
     right: 100px;
 }
+
+.div-title {
+    color: red;
+}
+
+@media (max-width: 935px) {
+    .pin-bottom {
+        left: 20px;
+        height: 75px;
+    }
+
+    .div-title {
+        overflow-y: auto;
+    }
+}
+
+@media (max-width: 490px) {
+    .pin-bottom {
+        left: 20px;
+    }
+}
+
+@media (max-height: 690px) {
+    .card-stack {
+        position: absolute;
+        top: 285px;
+    }
+}
