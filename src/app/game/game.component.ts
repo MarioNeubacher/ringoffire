@@ -12,7 +12,7 @@ import { GameserviceService } from '../gameservice.service';
 export class GameComponent implements OnInit {
 
   pickCardAnimation = false;
-  
+
   currentCard: string = '';
   game: Game; //variable works if strict set to false in tsconfig.json
 
@@ -27,21 +27,25 @@ export class GameComponent implements OnInit {
     this.game = new Game();
   }
 
-
   takeCard() {
     if (this.game.players.length < 2) {
       this.gameVariable.tooFewPlayers = true; //gameservice, gameinfo 
+      new Audio('assets/audio/attention.mp3').play();
       setTimeout(() => {
         this.gameVariable.tooFewPlayers = false;
       }, 1000);
-    } else if (!this.pickCardAnimation) { 
+    } else if (!this.pickCardAnimation) {
       this.currentCard = this.game.stack.pop(); //pop takes last value of array and deletes it
       this.pickCardAnimation = true; //not possible to take card until timeout
-     /*  console.log('New card' + this.currentCard);
-      console.log('Game is', this.game); */
+      /*  console.log('New card' + this.currentCard);
+       console.log('Game is', this.game); */
 
       this.game.currentPlayer++;
       this.game.currentPlayer = this.game.currentPlayer % this.game.players.length; //% modulu only counts until max length
+
+      setTimeout(() => {
+        new Audio('assets/audio/card.mp3').play();
+      }, 200);
 
       setTimeout(() => {
         this.game.playedCards.push(this.currentCard); //game.html *ngFor="let card of game.playedCards"
@@ -54,7 +58,7 @@ export class GameComponent implements OnInit {
     const dialogRef = this.dialog.open(DialogAddPlayerComponent);
 
     dialogRef.afterClosed().subscribe((name: string) => { //
-      if (name && name.length > 0) { 
+      if (name && name.length > 0) {
         this.game.players.push(name);
       }
     });

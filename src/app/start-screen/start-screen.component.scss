@@ -1,5 +1,5 @@
 .start-screen {
-    background: url('/assets/img/board.jpg');
+    background: url("/assets/img/board.jpg");
     background-size: cover;
     width: 100vw;
     height: 100vh;
@@ -10,6 +10,16 @@
 
     img {
         height: 100vh;
+        animation: fade-in 800ms 200ms backwards;
+    }
+
+    @keyframes fade-in {
+        0% {
+            transform: scale(0);
+        }
+        100% {
+            transform: scale(1);
+        }
     }
 }
 
@@ -29,5 +39,16 @@
             filter: brightness(1.25);
             cursor: pointer;
         }
+    }
+}
+
+@media (max-width: 790px) {
+    .start-screen img {
+        height: 700px;
+        width: auto;
+    }
+
+    .start-label-box img {
+        width: 30vw;
     }
 }

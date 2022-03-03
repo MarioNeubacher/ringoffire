@@ -8,9 +8,10 @@ import { Router } from '@angular/router';
 })
 export class StartScreenComponent implements OnInit {
 
-  constructor(private router: Router) { } //private bc only use in ts file
+  constructor(public router: Router) { } 
 
   ngOnInit(): void {
+    new Audio('assets/audio/music.mp3').play();
   }
 
   newGame() {
