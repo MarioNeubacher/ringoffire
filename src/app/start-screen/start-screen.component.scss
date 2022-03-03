@@ -42,13 +42,22 @@
     }
 }
 
-@media (max-width: 790px) {
-    .start-screen img {
-        height: 700px;
-        width: auto;
+.img-startbox {
+    max-width: 100%;
+}
+
+@media (max-width: 550px) {
+    .img-startbox {
+        height: 500px !important;
     }
 
-    .start-label-box img {
-        width: 30vw;
+    .start-label-box {
+        bottom: 200px;
+    }
+}
+
+@media (max-width: 300px) {
+    .mat-form-field-appearance-fill .mat-form-field-flex {
+        padding: 0.5em 0.5em 0 0.5em !important;
     }
 }
