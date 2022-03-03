@@ -2,13 +2,15 @@
 
 <div mat-dialog-content>
   <p>Please enter the name of the player</p>
+
   <mat-form-field appearance="fill">
     <mat-label>Name</mat-label>
-    <input matInput [(ngModel)]="name"> <!-- document.getElementById('').value -->
+    <input (onkeyup)="filterInput()" matInput [(ngModel)]="name"> <!-- document.getElementById('').value -->
   </mat-form-field>
+  
 </div>
 
 <div mat-dialog-actions>
   <button mat-button (click)="onNoClick()">No Thanks</button>
-  <button mat-button [disabled]="name.length == 0 || !letterCheck.playerNameContainsLetters" [mat-dialog-close]="name" cdkFocusInitial>Ok</button>
+  <button mat-button [disabled]="name.length == 0 || !this.letterCheck.playerNameContainsLetters" [mat-dialog-close]="name" cdkFocusInitial>Ok</button>
 </div>

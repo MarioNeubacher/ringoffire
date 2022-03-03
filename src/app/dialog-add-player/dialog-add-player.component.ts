@@ -14,12 +14,9 @@ export class DialogAddPlayerComponent implements OnInit {
   constructor(public dialogRef: MatDialogRef<DialogAddPlayerComponent>, public letterCheck: GameserviceService) { }
 
   ngOnInit(): void {
-    setInterval(() => {
-      this.checkLetter();
-    }, 0.001);
   }
 
-  checkLetter() {
+  filterInput() {
     if (this.name.match(/[a-z]/i)) {
       this.letterCheck.playerNameContainsLetters = true;
     } else {
