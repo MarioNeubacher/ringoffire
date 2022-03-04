@@ -23,3 +23,17 @@
 .player-active {
     background-color: orange !important;
 }
+
+.txt-player {
+    overflow-x: auto; 
+    height: 50px; 
+    display: flex; 
+    align-items: center; 
+    margin-right: 10px;
+}
+
+@media (max-width: 950px) {
+    .player {
+        width: 200px !important;
+    }
+}

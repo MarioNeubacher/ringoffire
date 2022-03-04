@@ -1,6 +1,10 @@
+.description {
+    overflow-y: auto;
+    height: 40px;
+}
+
 @media (max-width: 410px) {
     .div-cardInfo {
         overflow-y: auto;
-        height: 50px;
     }
 }
