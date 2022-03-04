@@ -43,6 +43,11 @@ export class GameComponent implements OnInit {
       this.game.currentPlayer++;
       this.game.currentPlayer = this.game.currentPlayer % this.game.players.length; //% modulu only counts until max length
 
+      if (this.game.currentPlayer > 5) {
+        var elem = document.getElementById('id-playerScrollable');
+        elem.scrollBottom += 5px;
+      }
+
       setTimeout(() => {
         new Audio('assets/audio/card.mp3').play();
       }, 200);

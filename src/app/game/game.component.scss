@@ -71,6 +71,15 @@
     animation: jump 1s forwards cubic-bezier(0.84, -0.54, 0.31, 1.19);
 }
 
+.player-scrollable {
+    height: 450px;
+    width: 200px;
+    overflow-y: auto;
+    top: 20px;
+    position: absolute;
+    right: 0;
+}
+
 @keyframes jump {
     0% {
         transform: none;
