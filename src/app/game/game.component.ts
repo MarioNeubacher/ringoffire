@@ -45,7 +45,7 @@ export class GameComponent implements OnInit {
 
       if (this.game.currentPlayer > 5) {
         var elem = document.getElementById('id-playerScrollable');
-        elem.scrollBottom += 5px;
+        elem.scrollBy(0, 5);
       }
 
       setTimeout(() => {
