@@ -87,8 +87,10 @@
     right: 100px;
 }
 
-.div-title {
-    color: red;
+@media (max-width: 950px) {
+    .player {
+        width: 200px;
+    }
 }
 
 @media (max-width: 935px) {
