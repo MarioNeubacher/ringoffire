@@ -46,7 +46,7 @@ export class GameComponent implements OnInit {
 
       for (let i = 0; i < this.game.players.length; i++) {
         const element = this.game.players.length[i];
-        if (element > 5) { //start with 0
+        if (i > 5) { //start with 0
           let elem = document.getElementById('id-playerScrollable');
           elem.scroll(0, 100);
         }
