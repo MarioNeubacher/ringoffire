@@ -16,6 +16,7 @@ export class GameComponent implements OnInit {
   currentCard: string = '';
   game: Game; //variable works if strict set to false in tsconfig.json
 
+
   constructor(public dialog: MatDialog, public gameVariable: GameserviceService) { }
 
   ngOnInit(): void {
@@ -43,9 +44,17 @@ export class GameComponent implements OnInit {
       this.game.currentPlayer++;
       this.game.currentPlayer = this.game.currentPlayer % this.game.players.length; //% modulu only counts until max length
 
-      if (this.game.currentPlayer > 5) {
-        var elem = document.getElementById('id-playerScrollable');
-        elem.scrollBy(0, 5);
+      for (let i = 0; i < this.game.players.length; i++) {
+        const element = this.game.players.length[i];
+        if (element > 5) { //start with 0
+          let elem = document.getElementById('id-playerScrollable');
+          elem.scroll(0, 100);
+        }
+      }
+      
+      if (this.game.currentPlayer <= 5) { //start with 0
+        let elem = document.getElementById('id-playerScrollable');
+        elem.scroll(0, 0);
       }
 
       setTimeout(() => {
