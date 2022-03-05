@@ -44,15 +44,11 @@ export class GameComponent implements OnInit {
       this.game.currentPlayer++;
       this.game.currentPlayer = this.game.currentPlayer % this.game.players.length; //% modulu only counts until max length
 
-      for (let i = 0; i < this.game.players.length; i++) {
-        const element = this.game.players.length[i];
-        if (i > 5) { //start with 0
-          let elem = document.getElementById('id-playerScrollable');
-          elem.scroll(0, 100);
-        }
-      }
-      
-      if (this.game.currentPlayer <= 5) { //start with 0
+      if (this.game.currentPlayer > 4) { //start with 0
+        let multiplicator = this.game.currentPlayer - 4;
+        let elem = document.getElementById('id-playerScrollable');
+        elem.scroll(0, 100 * multiplicator);
+      } else {
         let elem = document.getElementById('id-playerScrollable');
         elem.scroll(0, 0);
       }

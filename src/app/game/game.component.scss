@@ -11,6 +11,9 @@
 
 .card-stack {
     position: relative; //for [ngStyle]
+    display: flex;
+    justify-content: center;
+    z-index: 2;
 
     img {
         position: absolute;
@@ -54,6 +57,7 @@
 
 .player-position {
     position: absolute;
+    z-index: 2;
     right: 0;
 }
 
@@ -72,12 +76,16 @@
 }
 
 .player-scrollable {
-    height: 540px;
+    height: 450px;
     width: 200px;
     overflow-y: auto;
     top: 20px;
     position: absolute;
     right: 0;
+
+    &::-webkit-scrollbar {
+        width: 1px;
+      }
 }
 
 @keyframes jump {
@@ -115,12 +123,5 @@
 @media (max-width: 490px) {
     .pin-bottom {
         left: 20px;
-    }
-}
-
-@media (max-height: 690px) {
-    .card-stack {
-        position: absolute;
-        top: 285px;
     }
 }
