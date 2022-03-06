@@ -28,6 +28,32 @@ export class GameComponent implements OnInit {
     this.game = new Game();
   }
 
+  sound() {
+    let element = document.getElementById('id-sound');
+
+    if (this.gameVariable.soundMute == false) {
+      this.gameVariable.gameMusic.pause();
+      element.src = "assets/img/nosound.png";
+      this.gameVariable.soundMute = true;
+    } else {
+      this.gameVariable.gameMusic.play();
+      element.src = "assets/img/sound.png";
+      this.gameVariable.soundMute = false;
+    }
+  }
+
+  showAllPlayers() {
+    document.getElementById('id-allPlayers').classList.remove('allPlayers');
+    document.getElementById('id-allPlayers').classList.add('allPlayers2');
+    document.getElementById('id-dropDown').innerHTML = `
+      <mat-icon (click)="hideAllPlayers()" class="drop-down">arrow_drop_down</mat-icon>
+    `;
+  }
+
+  hideAllPlayers() {
+    document.getElementById('id-allPlayers').classList.add('d-none');
+  }
+
   takeCard() {
     if (this.game.players.length < 2) {
       this.gameVariable.tooFewPlayers = true; //gameservice, gameinfo 
