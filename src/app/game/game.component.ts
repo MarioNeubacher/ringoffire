@@ -12,16 +12,20 @@ import { GameserviceService } from '../gameservice.service';
 export class GameComponent implements OnInit {
 
   pickCardAnimation = false;
-
+  soundMute = false;
+  gameMusic = new Audio('assets/audio/music.mp3');
+  attentionSound = new Audio('assets/audio/attention.mp3');
+  cardSound = new Audio('assets/audio/card.mp3');
+  soundOrNosound = 'sound';
   currentCard: string = '';
   game: Game; //variable works if strict set to false in tsconfig.json
-
 
   constructor(public dialog: MatDialog, public gameVariable: GameserviceService) { }
 
   ngOnInit(): void {
     this.newGame();
     console.log(this.game);
+    this.gameMusic.play();
   }
 
   newGame() {
@@ -29,15 +33,17 @@ export class GameComponent implements OnInit {
   }
 
   sound() {
-    let element = document.getElementById('id-sound');
-
-    if (this.gameVariable.soundMute == false) {
-      this.gameVariable.gameMusic.pause();
-      element.src = "assets/img/nosound.png";
+    if (this.gameVariable.soundMute == false) { //turn off
+      this.gameMusic.volume = 0;
+      this.attentionSound.volume = 0;
+      this.cardSound.volume = 0;
+      this.soundOrNosound = 'nosound';
       this.gameVariable.soundMute = true;
-    } else {
-      this.gameVariable.gameMusic.play();
-      element.src = "assets/img/sound.png";
+    } else { //turn on
+      this.gameMusic.volume = 1;
+      this.attentionSound.volume = 1;
+      this.cardSound.volume = 1;
+      this.soundOrNosound = 'sound';
       this.gameVariable.soundMute = false;
     }
   }
@@ -57,7 +63,7 @@ export class GameComponent implements OnInit {
   takeCard() {
     if (this.game.players.length < 2) {
       this.gameVariable.tooFewPlayers = true; //gameservice, gameinfo 
-      new Audio('assets/audio/attention.mp3').play();
+      this.attentionSound.play();
       setTimeout(() => {
         this.gameVariable.tooFewPlayers = false;
       }, 1000);
@@ -70,17 +76,19 @@ export class GameComponent implements OnInit {
       this.game.currentPlayer++;
       this.game.currentPlayer = this.game.currentPlayer % this.game.players.length; //% modulu only counts until max length
 
-      if (this.game.currentPlayer > 0) { //start with 0
+      
+
+     /*  if (this.game.currentPlayer > 0) { 
         let multiplicator = this.game.currentPlayer - 0;
         let elem = document.getElementById('id-playerScrollable');
         elem.scroll(0, 70 * multiplicator);
       } else {
         let elem = document.getElementById('id-playerScrollable');
         elem.scroll(0, 0);
-      }
+      } */
 
       setTimeout(() => {
-        new Audio('assets/audio/card.mp3').play();
+        this.cardSound.play();
       }, 200);
 
       setTimeout(() => {

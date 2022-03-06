@@ -9,6 +9,10 @@
     align-items: center;
 }
 
+.player-active {
+    background-color: orange !important;
+}
+
 .drop-down {
     position: fixed; 
     top: 40px;
@@ -79,6 +83,7 @@
     position: absolute;
     z-index: 2;
     right: 0;
+    top: 10px;
 }
 
 .btn-add {

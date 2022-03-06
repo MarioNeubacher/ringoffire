@@ -1,16 +1,16 @@
 <div class="div-field">
 
-    <div id="id-playerScrollable" class="player-scrollable">
-        <app-player *ngFor="let player of game.players; let i = index;" [ngStyle]="{'top.px': i * 70}"
-            [playerActive]="i == game.currentPlayer" [name]="player" class="player-position"></app-player>
-    </div>
+    <app-player *ngFor="let player of game.players; let i = index;" [playerActive]="i == game.currentPlayer"
+        [name]="player" class="player-position">
+    </app-player>
+
     <div id="id-allPlayers" class="allPlayers">
-        <app-player *ngFor="let player of game.players; let i = index;" [ngStyle]="{'top.px': i * 90}"
-        [name]="player" class="player-position"></app-player>
+        <app-player *ngFor="let player of game.players; let i = index;" [ngStyle]="{'top.px': i * 90}" [name]="player"
+            class="player-position"></app-player>
     </div>
 
     <mat-icon id="id-dropDown" (click)="showAllPlayers()" class="drop-down d-none">arrow_drop_down</mat-icon>
-    
+
     <div class="card-stack">
         <!-- Card stack -->
         <img *ngFor="let c of [0,1,2,3]; let i = index;" [ngStyle]="{'right.px': i * 5}"
@@ -34,4 +34,5 @@
     <mat-icon>person_add</mat-icon>
 </button>
 
-<img id="id-sound" (click)="sound()" style="position: fixed; top: 10px; left: 10px; width: 45px" src="assets/img/sound.png">
+<img id="id-sound" (click)="sound()" style="position: fixed; top: 10px; left: 10px; width: 45px"
+    src="assets/img/{{soundOrNosound}}.png">
