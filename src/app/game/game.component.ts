@@ -76,8 +76,6 @@ export class GameComponent implements OnInit {
       this.game.currentPlayer++;
       this.game.currentPlayer = this.game.currentPlayer % this.game.players.length; //% modulu only counts until max length
 
-      
-
      /*  if (this.game.currentPlayer > 0) { 
         let multiplicator = this.game.currentPlayer - 0;
         let elem = document.getElementById('id-playerScrollable');

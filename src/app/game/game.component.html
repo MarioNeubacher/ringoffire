@@ -1,14 +1,17 @@
 <div class="div-field">
 
+    <!-- Active Player -->
     <app-player *ngFor="let player of game.players; let i = index;" [playerActive]="i == game.currentPlayer"
         [name]="player" class="player-position">
     </app-player>
 
+    <!-- All Players -->
     <div id="id-allPlayers" class="allPlayers">
         <app-player *ngFor="let player of game.players; let i = index;" [ngStyle]="{'top.px': i * 90}" [name]="player"
             class="player-position"></app-player>
     </div>
 
+    <!-- Arrow for all players @media (maxwidth: 620px) -->
     <mat-icon id="id-dropDown" (click)="showAllPlayers()" class="drop-down d-none">arrow_drop_down</mat-icon>
 
     <div class="card-stack">
