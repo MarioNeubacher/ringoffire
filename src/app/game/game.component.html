@@ -1,15 +1,11 @@
 <div class="div-field">
 
     <!-- Active Player -->
-    <div>
-        <app-player *ngFor="let player of game.players; let i = index;" [playerActive]="i == game.currentPlayer"
-            [name]="player" class="player-position">
-        </app-player>
-    </div>
+    <app-player [playerActive]="game.players[game.currentPlayer]" [name]="game.players[game.currentPlayer]" class="player-position d-none"></app-player>
 
     <!-- All Players -->
     <div id="id-allPlayers" class="allPlayers">
-        <app-player *ngFor="let player of game.players; let i = index;" [ngStyle]="{'top.px': i * 90}" [name]="player"
+        <app-player *ngFor="let player of game.players; let i = index;" [name]="player" [ngStyle]="{'top.px': i * 90}"
             class="player-position"></app-player>
     </div>
 

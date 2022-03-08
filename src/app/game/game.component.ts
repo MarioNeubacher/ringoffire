@@ -96,6 +96,7 @@ export class GameComponent implements OnInit {
     }
   }
 
+  //angular material library 
   openDialog(): void {
     const dialogRef = this.dialog.open(DialogAddPlayerComponent);
 
