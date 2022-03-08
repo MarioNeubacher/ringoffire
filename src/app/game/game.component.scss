@@ -11,7 +11,7 @@
 
 .drop-down {
     position: fixed;
-    top: 40px;
+    top: 27.5px;
     right: 0px;
     font-size: 40px;
     color: white;
@@ -22,6 +22,10 @@
 }
 
 .d-none {
+    display: none;
+}
+
+.d-none-dropdown {
     display: none;
 }
 
@@ -211,7 +215,7 @@
         display: none;
     }
 
-    .d-none {
+    .d-none-dropdown {
         display: unset;
     }
 }

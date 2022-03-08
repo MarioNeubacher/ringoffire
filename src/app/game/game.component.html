@@ -1,7 +1,7 @@
 <div class="div-field">
 
     <!-- Active Player -->
-    <app-player [playerActive]="game.players[game.currentPlayer]" [name]="game.players[game.currentPlayer]" class="player-position d-none"></app-player>
+    <app-player id="id-activePlayer" [playerActive]="true" [name]="game.players[game.currentPlayer]" class="player-position d-none"></app-player>
 
     <!-- All Players -->
     <div id="id-allPlayers" class="allPlayers">
@@ -10,7 +10,7 @@
     </div>
 
     <!-- Arrow for all players @media (max-width: 620px) -->
-    <mat-icon id="id-dropDown" (click)="showAllPlayers()" class="drop-down d-none">arrow_drop_down</mat-icon>
+    <mat-icon id="id-dropDown" (click)="showAllPlayers()" class="drop-down d-none-dropdown">arrow_drop_down</mat-icon>
 
     <div class="card-stack">
         <!-- Card stack -->
