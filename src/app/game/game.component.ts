@@ -11,6 +11,8 @@ import { GameserviceService } from '../gameservice.service';
 })
 export class GameComponent implements OnInit {
 
+  showActivePlayer = false;
+  togglePlayers = true;
   pickCardAnimation = false;
   soundMute = false;
   gameMusic = new Audio('assets/audio/music.mp3');
@@ -22,16 +24,25 @@ export class GameComponent implements OnInit {
 
   constructor(public dialog: MatDialog, public gameVariable: GameserviceService) { }
 
+  /**
+   * This function loads the functions init when website loads
+   */
   ngOnInit(): void {
     this.newGame();
     console.log(this.game);
     this.gameMusic.play();
   }
 
+  /**
+   * This function sets model/object as a variable (OOP)
+   */
   newGame() {
     this.game = new Game();
   }
 
+  /**
+   * This function sets the sound
+   */
   sound() {
     if (this.gameVariable.soundMute == false) { //turn off
       this.gameMusic.volume = 0;
@@ -48,18 +59,16 @@ export class GameComponent implements OnInit {
     }
   }
 
-  showAllPlayers() {
-    document.getElementById('id-allPlayers').classList.remove('allPlayers');
-    document.getElementById('id-allPlayers').classList.add('allPlayers2');
-    document.getElementById('id-dropDown').innerHTML = `
-      <mat-icon (click)="hideAllPlayers()" class="drop-down">arrow_drop_down</mat-icon>
-    `;
+  /**
+   * This function sets variable 'togglePlayers' to true so *ngIf in html gets triggered to show all players 
+   */
+  toggleAllPlayers() {
+    this.togglePlayers = !this.togglePlayers; 
   }
 
-  hideAllPlayers() {
-    document.getElementById('id-allPlayers').classList.add('d-none');
-  }
-
+  /**
+   * This function plays animations to take a card from stack
+   */
   takeCard() {
     if (this.game.players.length < 2) {
       this.gameVariable.tooFewPlayers = true; //gameservice, gameinfo 
@@ -74,7 +83,7 @@ export class GameComponent implements OnInit {
        console.log('Game is', this.game); */
 
       this.game.currentPlayer++;
-      this.game.currentPlayer = this.game.currentPlayer % this.game.players.length; //% modulu only counts until max length
+      this.game.currentPlayer = this.game.currentPlayer % this.game.players.length; //% modulu only counts to max length
 
      /*  if (this.game.currentPlayer > 0) { 
         let multiplicator = this.game.currentPlayer - 0;
@@ -96,7 +105,9 @@ export class GameComponent implements OnInit {
     }
   }
 
-  //angular material library 
+  /**
+   * This function is from angular material library to make the dialog for all players work
+   */
   openDialog(): void {
     const dialogRef = this.dialog.open(DialogAddPlayerComponent);
 

@@ -15,6 +15,8 @@ import { MatFormFieldModule } from '@angular/material/form-field';
 import { MatInputModule } from '@angular/material/input';
 import { GameInfoComponent } from './game-info/game-info.component';
 import { MatCardModule } from '@angular/material/card';
+import { environment } from '../environments/environment';
+import { provideFirebaseApp, initializeApp } from '@angular/fire/app';
 
 @NgModule({
   declarations: [
@@ -26,6 +28,7 @@ import { MatCardModule } from '@angular/material/card';
     GameInfoComponent
   ],
   imports: [
+    provideFirebaseApp(() => initializeApp(environment.firebase)),
     MatFormFieldModule,
     BrowserModule,
     AppRoutingModule,

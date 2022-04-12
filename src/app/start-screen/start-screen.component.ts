@@ -10,8 +10,11 @@ export class StartScreenComponent {
 
   constructor(public router: Router) { } 
 
+  /**
+   * This function sets path game in app routing module 
+   */
   newGame() {
-    this.router.navigateByUrl('/game'); //path game in app routing module
+    this.router.navigateByUrl('/game'); 
   }
 
 }

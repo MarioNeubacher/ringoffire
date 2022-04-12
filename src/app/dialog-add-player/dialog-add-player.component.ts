@@ -16,6 +16,9 @@ export class DialogAddPlayerComponent implements OnInit {
   ngOnInit(): void {
   }
 
+  /**
+   * This function doesnt allow empty space 
+   */
   filterInput() {
     if (this.name.match(/[a-z]/i)) {
       this.letterCheck.playerNameContainsLetters = true;
@@ -24,6 +27,9 @@ export class DialogAddPlayerComponent implements OnInit {
     }
   }
 
+  /**
+   * This click function closes the dialog for adding players
+   */
   onNoClick() {
     this.dialogRef.close();
   }

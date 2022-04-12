@@ -1,22 +1,25 @@
 <div class="div-field">
 
     <!-- Active Player -->
-    <app-player id="id-activePlayer" [playerActive]="true" [name]="game.players[game.currentPlayer]" class="player-position d-none"></app-player>
+    <div id="id-activePlayer" class="d-none">
+        <app-player [playerActive]="true" [name]="game.players[game.currentPlayer]" class="player-position"></app-player>
+        <mat-icon id="id-dropDown" (click)="toggleAllPlayers()" class="drop-down">arrow_drop_down</mat-icon>
+    </div>
 
     <!-- All Players -->
-    <div id="id-allPlayers" class="allPlayers">
+    <div id="id-allPlayers" *ngIf="togglePlayers" class="allPlayers">
         <app-player *ngFor="let player of game.players; let i = index;" [name]="player" [ngStyle]="{'top.px': i * 90}"
             class="player-position"></app-player>
     </div>
 
     <!-- Arrow for all players @media (max-width: 620px) -->
-    <mat-icon id="id-dropDown" (click)="showAllPlayers()" class="drop-down d-none-dropdown">arrow_drop_down</mat-icon>
+   
 
     <div class="card-stack">
         <!-- Card stack -->
-        <img *ngFor="let c of [0,1,2,3]; let i = index;" [ngStyle]="{'right.px': i * 5}"
+        <img *ngFor="let c of [0,1,2,3]; let i = index;" [ngStyle]="{'right.px': i * -5}"
             src="assets/img/cards/card_cover.png" class="cards-underneath">
-        <img (click)="takeCard()" class="top-card" style="right: 20.5px" src="assets/img/cards/card_cover.png">
+        <img (click)="takeCard()" class="top-card" style="right: -21px" src="assets/img/cards/card_cover.png">
 
         <!-- Stack for played cards -->
         <img *ngFor="let card of game.playedCards" class="played-card" src="assets/img/cards/{{ card }}.png">

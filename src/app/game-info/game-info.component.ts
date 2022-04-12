@@ -33,16 +33,25 @@ export class GameInfoComponent implements OnInit, OnChanges {
 
   constructor(public gameVariable: GameserviceService) { }
 
+  /**
+   * This function loads the functions in it when page loads
+   */
   ngOnInit(): void {
     this.newGame();
   }
 
+  /**
+   * This function sets model/object to variable 
+   */
   newGame() {
     this.game = new Game();
   }
 
+  /**
+   * This function gets triggered when a card is picked bc by defailt title is undefined and determines which title/description by the last number
+   */
   ngOnChanges(): void { //void only functions, doesnt give true/false back
-    if (this.card) { //by default title is undefined until card picked
+    if (this.card) { 
       console.log('Current card is:', this.card);
       let cardNumber = +this.card.split('_')[1]; //string gets number type when + at the beginning
       this.title = this.cardAction[cardNumber - 1].title; //-1 bc cards start at 1 and array always at 0
