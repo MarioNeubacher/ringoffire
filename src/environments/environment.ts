@@ -5,13 +5,14 @@
 export const environment = {
   production: false,
   firebase: {
-    apiKey: "AIzaSyC_Jw_gGyVM9wTb-4sOSO81QwLHCexZxcw",
-    authDomain: "ring-of-fire-cc758.firebaseapp.com",
-    databaseURL: "https://ring-of-fire-cc758-default-rtdb.europe-west1.firebasedatabase.app",
-    projectId: "ring-of-fire-cc758",
-    storageBucket: "ring-of-fire-cc758.appspot.com",
-    messagingSenderId: "131310343638",
-    appId: "1:131310343638:web:003315d819d145699c8077"
+    projectId: 'ring-of-fire-cc758',
+    appId: '1:131310343638:web:003315d819d145699c8077',
+    databaseURL: 'https://ring-of-fire-cc758-default-rtdb.europe-west1.firebasedatabase.app',
+    storageBucket: 'ring-of-fire-cc758.appspot.com',
+    locationId: 'europe-west',
+    apiKey: 'AIzaSyC_Jw_gGyVM9wTb-4sOSO81QwLHCexZxcw',
+    authDomain: 'ring-of-fire-cc758.firebaseapp.com',
+    messagingSenderId: '131310343638',
   }
 };
 

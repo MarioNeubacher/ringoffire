@@ -1,5 +1,14 @@
 {
   "projects": {
     "default": "ring-of-fire-cc758"
+  },
+  "targets": {
+    "ring-of-fire-cc758": {
+      "hosting": {
+        "ringoffire": [
+          "ring-of-fire-cc758"
+        ]
+      }
+    }
   }
 }
