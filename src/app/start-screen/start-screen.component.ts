@@ -1,5 +1,7 @@
 import { Component, OnInit } from '@angular/core';
+import { AngularFirestore } from '@angular/fire/compat/firestore';
 import { Router } from '@angular/router';
+import { Game } from 'src/models/game';
 
 @Component({
   selector: 'app-start-screen',
@@ -8,13 +10,21 @@ import { Router } from '@angular/router';
 })
 export class StartScreenComponent {
 
-  constructor(public router: Router) { } 
+  constructor(
+    private firestore: AngularFirestore,
+    public router: Router
+  ) { }
 
   /**
    * This function sets path game in app routing module 
    */
   newGame() {
-    this.router.navigateByUrl('/game'); 
+    let game = new Game();
+    this.firestore
+      .collection('games')
+      .add(game.toJSON())
+      .then((gameInfo: any) => {
+        this.router.navigateByUrl('/game/' + gameInfo.id);
+      });
   }
-
 }
