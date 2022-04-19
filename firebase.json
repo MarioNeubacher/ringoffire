@@ -1,4 +1,7 @@
 {
+  "functions": {
+    "source": "functions"
+  },
   "database": {
     "rules": "database.rules.json"
   },
@@ -7,7 +10,7 @@
     "indexes": "firestore.indexes.json"
   },
   "hosting": {
-    "public": "public",
+    "public": "dist/ringoffire/",
     "ignore": [
       "firebase.json",
       "**/.*",

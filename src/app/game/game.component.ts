@@ -102,13 +102,14 @@ export class GameComponent implements OnInit {
       }, 1000);
     } else if (!this.game.pickCardAnimation) {
       this.game.currentCard = this.game.stack.pop(); //pop takes last value of array and deletes it
-      this.saveGame();
       this.game.pickCardAnimation = true; //not possible to take card until timeout
       /*  console.log('New card' + this.currentCard);
        console.log('Game is', this.game); */
-
+       
       this.game.currentPlayer++;
       this.game.currentPlayer = this.game.currentPlayer % this.game.players.length; //% modulu only counts to max length
+
+      this.saveGame();
 
       /*  if (this.game.currentPlayer > 0) { 
          let multiplicator = this.game.currentPlayer - 0;
