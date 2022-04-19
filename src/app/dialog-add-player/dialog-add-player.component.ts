@@ -9,9 +9,11 @@ import { GameserviceService } from '../gameservice.service';
 })
 export class DialogAddPlayerComponent implements OnInit {
 
-  name: string = '';
-
-  constructor(public dialogRef: MatDialogRef<DialogAddPlayerComponent>, public letterCheck: GameserviceService) { }
+  constructor(
+    public dialogRef: MatDialogRef<DialogAddPlayerComponent>, 
+    public letterCheck: GameserviceService,
+    public gameVariable: GameserviceService
+    ) { }
 
   ngOnInit(): void {
   }
@@ -20,7 +22,7 @@ export class DialogAddPlayerComponent implements OnInit {
    * This function doesnt allow empty space 
    */
   filterInput() {
-    if (this.name.match(/[a-z]/i)) {
+    if (this.gameVariable.name.match(/[a-z]/i)) {
       this.letterCheck.playerNameContainsLetters = true;
     } else {
       this.letterCheck.playerNameContainsLetters = false;

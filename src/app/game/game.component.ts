@@ -20,8 +20,6 @@ export class GameComponent implements OnInit {
   attentionSound = new Audio('assets/audio/attention.mp3');
   cardSound = new Audio('assets/audio/card.mp3');
   soundOrNosound = 'sound';
-  game: Game; //variable works if strict set to false in tsconfig.json
-  gameId: string;
 
   constructor(
     private route: ActivatedRoute,
@@ -34,34 +32,27 @@ export class GameComponent implements OnInit {
    * This function loads the functions init when website loads
    */
   ngOnInit(): void {
-    this.newGame();
+    this.gameVariable.newGame();
     this.route.params.subscribe((params) => {
       console.log(params.id);
-      this.gameId = params.id; //set URL globally as var gameId
+      this.gameVariable.gameId = params.id; //set URL globally as var gameId
 
       this
         .firestore
         .collection('games')
-        .doc(this.gameId)
+        .doc(this.gameVariable.gameId)
         .valueChanges()
         .subscribe((game: any) => {
           console.log('Game update', game);
-          this.game.currentPlayer = game.currentPlayer;
-          this.game.playedCards = game.playedCards;
-          this.game.players = game.players;
-          this.game.stack = game.stack;
-          this.game.pickCardAnimation = game.pickCardAnimation;
-          this.game.currentCard = game.currentCard;
+          this.gameVariable.game.currentPlayer = game.currentPlayer;
+          this.gameVariable.game.playedCards = game.playedCards;
+          this.gameVariable.game.players = game.players;
+          this.gameVariable.game.stack = game.stack;
+          this.gameVariable.game.pickCardAnimation = game.pickCardAnimation;
+          this.gameVariable.game.currentCard = game.currentCard;
         });
     });
     this.gameMusic.play();
-  }
-
-  /**
-   * This function sets model/object as a variable (OOP)
-   */
-  newGame() {
-    this.game = new Game();
   }
 
   /**
@@ -94,22 +85,22 @@ export class GameComponent implements OnInit {
    * This function plays animations to take a card from stack
    */
   takeCard() {
-    if (this.game.players.length < 2) {
+    if (this.gameVariable.game.players.length < 2) {
       this.gameVariable.tooFewPlayers = true; //gameservice, gameinfo 
       this.attentionSound.play();
       setTimeout(() => {
         this.gameVariable.tooFewPlayers = false;
       }, 1000);
-    } else if (!this.game.pickCardAnimation) {
-      this.game.currentCard = this.game.stack.pop(); //pop takes last value of array and deletes it
-      this.game.pickCardAnimation = true; //not possible to take card until timeout
+    } else if (!this.gameVariable.game.pickCardAnimation) {
+      this.gameVariable.game.currentCard = this.gameVariable.game.stack.pop(); //pop takes last value of array and deletes it
+      this.gameVariable.game.pickCardAnimation = true; //not possible to take card until timeout
       /*  console.log('New card' + this.currentCard);
        console.log('Game is', this.game); */
        
-      this.game.currentPlayer++;
-      this.game.currentPlayer = this.game.currentPlayer % this.game.players.length; //% modulu only counts to max length
+      this.gameVariable.game.currentPlayer++;
+      this.gameVariable.game.currentPlayer = this.gameVariable.game.currentPlayer % this.gameVariable.game.players.length; //% modulu only counts to max length
 
-      this.saveGame();
+      this.gameVariable.saveGame();
 
       /*  if (this.game.currentPlayer > 0) { 
          let multiplicator = this.game.currentPlayer - 0;
@@ -125,9 +116,9 @@ export class GameComponent implements OnInit {
       }, 200);
 
       setTimeout(() => {
-        this.game.playedCards.push(this.game.currentCard); //game.html *ngFor="let card of game.playedCards"
-        this.game.pickCardAnimation = false;
-        this.saveGame();
+        this.gameVariable.game.playedCards.push(this.gameVariable.game.currentCard); //game.html *ngFor="let card of game.playedCards"
+        this.gameVariable.game.pickCardAnimation = false;
+        this.gameVariable.saveGame();
       }, 1000);
     }
   }
@@ -140,18 +131,10 @@ export class GameComponent implements OnInit {
 
     dialogRef.afterClosed().subscribe((name: string) => { //
       if (name && name.length > 0) {
-        this.game.players.push(name);
-        document.getElementById('id-activePlayer').classList.remove('d-none');
-        this.saveGame(); 
+        this.gameVariable.game.players.push(name);
+        this.gameVariable.saveGame(); 
       }
     });
   }
 
-  saveGame() {
-    this
-      .firestore
-      .collection('games')
-      .doc(this.gameId)
-      .update(this.game.toJSON());
-  }
 }
