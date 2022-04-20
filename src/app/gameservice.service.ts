@@ -16,6 +16,7 @@ export class GameserviceService {
   game: Game; //variable works if strict set to false in tsconfig.json
 
   name: string = '';
+  profilePic: number = '';
 
   constructor(
     private firestore: AngularFirestore
