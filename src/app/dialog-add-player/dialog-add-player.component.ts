@@ -11,7 +11,7 @@ export class DialogAddPlayerComponent implements OnInit {
 
   allProfilePictures = ['cat.png', 'duck.png', 'rabbit.png', 'pig.png', 'elephant.png', 'sheep.png', 'teddy.png', 'unicorn.png'];
 
-  imgSelected = false;
+  selectedIndex = -1;
 
   constructor(
     public dialogRef: MatDialogRef<DialogAddPlayerComponent>, 
@@ -46,7 +46,7 @@ export class DialogAddPlayerComponent implements OnInit {
   }
 
   selectProfilePicture(i) {
-    this.imgSelected = true;
+    this.selectedIndex = i;
   }
 
 }

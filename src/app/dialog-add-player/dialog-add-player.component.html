@@ -11,8 +11,9 @@
   </mat-form-field>
 
   <div style="display: flex; flex-wrap: wrap; width: 200px; justify-content: center;">
-    <img [class.profilePictureSelected]="imgSelected" (click)="selectProfilePicture(i)" class="img-animals"
-      *ngFor="let profilePicture of allProfilePictures; let i = index" src="assets/img/pictures/{{profilePicture}}">
+    <img *ngFor="let profilePicture of allProfilePictures; let i = index" src="assets/img/pictures/{{profilePicture}}"
+      (click)="selectProfilePicture(i)" class="img-animals"
+      [ngClass]="{ 'profilePictureSelected' : selectedIndex === i }">
   </div>
 
 </div>
@@ -20,6 +21,6 @@
 <div mat-dialog-actions>
   <button mat-button (click)="onNoClick()">No Thanks</button>
   <button mat-button (click)="clickOk()"
-    [disabled]="gameVariable.name.length == 0 || !this.letterCheck.playerNameContainsLetters"
-    [mat-dialog-close]="gameVariable.name" cdkFocusInitial>Ok</button>
+    [disabled]="gameVariable.name.length == 0 || !this.letterCheck.playerNameContainsLetters || gameVariable.game.player_images.length == 0"
+    [mat-dialog-close]="gameVariable.name && gameVariable.game.player_images" cdkFocusInitial>Ok</button>
 </div>
