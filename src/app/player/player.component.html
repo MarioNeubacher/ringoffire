@@ -1,5 +1,7 @@
 <div class="player" [class.player-active]="playerActive">
-    <img src="assets/img/profile/1.webp">
-    <span class="txt-player">{{ name }}</span> <!-- name from player.ts -->
-    <img (click)="deletePlayer(i)" *ngIf="!playerActive" style="width: 24px; height: auto; padding-left: 5px; cursor: pointer;" src="assets/img/trash.png">
+    <img class="img-profile" src="assets/img/profile/1.webp">
+    <span style="overflow: hidden;">
+        <span class="txt-player">{{ name }}</span> <!-- name from player.ts -->
+    </span>
+    <img *ngIf="!playerActive" class="img-trash" src="assets/img/trash.png">
 </div>

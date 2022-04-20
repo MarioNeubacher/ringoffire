@@ -9,6 +9,10 @@ import { GameserviceService } from '../gameservice.service';
 })
 export class DialogAddPlayerComponent implements OnInit {
 
+  allProfilePictures = ['cat.png', 'duck.png', 'rabbit.png', 'pig.png', 'elephant.png', 'sheep.png', 'teddy.png', 'unicorn.png'];
+
+  imgSelected = false;
+
   constructor(
     public dialogRef: MatDialogRef<DialogAddPlayerComponent>, 
     public letterCheck: GameserviceService,
@@ -34,6 +38,15 @@ export class DialogAddPlayerComponent implements OnInit {
    */
   onNoClick() {
     this.dialogRef.close();
+    this.gameVariable.name = '';
+  }
+
+  clickOk() {
+    this.gameVariable.name = '';
+  }
+
+  selectProfilePicture(i) {
+    this.imgSelected = true;
   }
 
 }

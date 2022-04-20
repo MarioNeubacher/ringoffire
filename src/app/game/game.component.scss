@@ -19,6 +19,10 @@
     width: auto;
     z-index: 4;
     cursor: pointer;
+
+    &:hover {
+        filter: brightness(0.8);
+    }
 }
 
 .d-none {

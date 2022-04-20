@@ -9,15 +9,14 @@
 
     span {
         font-size: 32px;
-        margin-left: 16px;
     }
+}
 
-    img {
-        width: 70px;
-        height: 70px;
-        object-fit: cover;
-        border-radius: 100%;
-    }
+.img-profile {
+    width: 70px;
+    height: 70px;
+    object-fit: cover;
+    border-radius: 100%;
 }
 
 .player-active {
@@ -28,9 +27,20 @@
 .txt-player {
     overflow-x: auto; 
     height: 50px; 
+    width: 90px;
     display: flex; 
     align-items: center; 
     margin-right: 10px;
+}
+
+.img-trash {
+    width: 25px; 
+    height: auto; 
+    cursor: pointer;
+
+    &:hover {
+        filter: brightness(0.8);
+    }
 }
 
 @media (max-width: 950px) {

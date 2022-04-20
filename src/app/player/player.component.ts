@@ -11,14 +11,8 @@ export class PlayerComponent implements OnInit {
   @Input() name; //game.html gives variable name for player array with [name]="player"
   @Input() playerActive: boolean = false; //from game.html to player.html
 
-  
   constructor(public gameVariable: GameserviceService) { }
 
   ngOnInit(): void {
-  }
-
-  deletePlayer(index) {
-    this.gameVariable.game.players.splice(index, 1);
-    this.gameVariable.saveGame();
   }
 }

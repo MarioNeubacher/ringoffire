@@ -47,6 +47,7 @@ export class GameComponent implements OnInit {
           this.gameVariable.game.currentPlayer = game.currentPlayer;
           this.gameVariable.game.playedCards = game.playedCards;
           this.gameVariable.game.players = game.players;
+          this.gameVariable.game.player_images = game.player_images;
           this.gameVariable.game.stack = game.stack;
           this.gameVariable.game.pickCardAnimation = game.pickCardAnimation;
           this.gameVariable.game.currentCard = game.currentCard;
@@ -135,6 +136,11 @@ export class GameComponent implements OnInit {
         this.gameVariable.saveGame(); 
       }
     });
+  }
+
+  deletePlayer(index) {
+    this.gameVariable.game.players.splice(index, 1);
+    this.gameVariable.saveGame();
   }
 
 }

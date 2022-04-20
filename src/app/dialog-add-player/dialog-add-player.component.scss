@@ -1,3 +1,20 @@
+.img-animals {
+    height: auto; 
+    width: 35px; 
+    cursor: pointer;
+    margin: 5px;
+
+    &:hover {
+        filter: brightness(1.1);
+    }
+}
+
+.profilePictureSelected {
+    background: #3F51B5;
+    border-radius: 100px;
+    padding: 2.5px;
+}
+
 @media (max-width: 300px) {
     .div-name  {
         width: 90%;
