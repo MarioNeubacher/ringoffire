@@ -17,8 +17,8 @@ export class PlayerComponent implements OnInit {
   ngOnInit(): void {
   }
 
-  deletePlayer() {
-    this.gameVariable.game.players.slice();
+  deletePlayer(index) {
+    this.gameVariable.game.players.splice(index, 1);
     this.gameVariable.saveGame();
   }
 }
