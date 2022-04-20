@@ -12,8 +12,8 @@
 
   <div style="display: flex; flex-wrap: wrap; width: 200px; justify-content: center;">
     <img *ngFor="let profilePicture of allProfilePictures; let i = index" src="assets/img/pictures/{{profilePicture}}"
-      (click)="selectProfilePicture(i)" class="img-animals"
-      [ngClass]="{ 'profilePictureSelected' : selectedIndex === i }">
+      (click)="selectProfilePicture(i)" [ngClass]="{ 'profilePictureSelected' : selectedIndex === i }"
+      class="img-animals" [(ngModel)]="gameVariable.game.player_images">
   </div>
 
 </div>
