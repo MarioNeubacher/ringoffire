@@ -130,10 +130,11 @@ export class GameComponent implements OnInit {
   openDialog(): void {
     const dialogRef = this.dialog.open(DialogAddPlayerComponent);
 
-    dialogRef.afterClosed().subscribe((name: string, profilePic: string) => { //from dialog-add-player.component.html ngModule 
+    dialogRef.afterClosed().subscribe((name: string) => { //from dialog-add-player.component.html ngModule // , profilePic: string
       if (name && name.length > 0) {
+        console.log('profilePic');
         this.gameVariable.game.players.push(name);
-        this.gameVariable.game.player_images.push(profilePic);
+        /* this.gameVariable.game.player_images.push(profilePic); */
         this.gameVariable.saveGame(); 
       }
     });

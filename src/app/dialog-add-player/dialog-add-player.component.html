@@ -13,7 +13,7 @@
   <div style="display: flex; flex-wrap: wrap; width: 200px; justify-content: center;">
     <img *ngFor="let profilePicture of allProfilePictures; let i = index" src="assets/img/pictures/{{profilePicture}}"
       (click)="selectProfilePicture(i)" [ngClass]="{ 'profilePictureSelected' : selectedIndex === i }"
-      class="img-animals" [(ngModel)]="gameVariable.profilePic">
+      class="img-animals" ngDefaultControl [(ngModel)]="gameVariable.profilePic">
   </div>
 
 </div>
