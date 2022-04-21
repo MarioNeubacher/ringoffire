@@ -12,23 +12,17 @@
 
   <mat-form-field>
     <p>Please choose the animal of the player</p>
-    <mat-select [(ngModel)]="gameVariable.animal" style="background-color: #F5F5F5; border-radius: 10px; padding: 10px 0px">
+    <mat-select [(ngModel)]="gameVariable.animal"
+      style="background-color: #F5F5F5; border-radius: 10px; padding: 10px 0px"
+      [ngClass]="{ 'profilePictureSelected' : selectedIndex === i }">
       <ng-container *ngFor="let profilePicture of allProfilePictures; let i = index">
-        <mat-option value="{{profilePicture}}" class="option-field">
-          <div>
-            <!-- <img src="assets/img/pictures/{{profilePicture}}"> -->
-            <div class="img-{{profilePicture}}"></div>
-          </div>
+        <mat-option [value]="profilePicture" class="option-field">
+          <!-- <img src="assets/img/pictures/{{profilePicture}}"> -->
+          <div class="img-{{profilePicture}}" (click)="selectProfilePicture(i)"></div>
         </mat-option>
       </ng-container>
     </mat-select>
   </mat-form-field>
-
-  <!-- <div style="display: flex; flex-wrap: wrap; width: 200px; justify-content: center;">
-    <img *ngFor="let profilePicture of allProfilePictures; let i = index" src="assets/img/pictures/{{profilePicture}}"
-      (click)="selectProfilePicture(i)" [ngClass]="{ 'profilePictureSelected' : selectedIndex === i }"
-      class="img-animals" ngDefaultControl [(ngModel)]="gameVariable.profilePic">
-  </div> -->
 
 </div>
 
