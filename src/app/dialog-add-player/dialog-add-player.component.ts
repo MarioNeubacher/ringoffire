@@ -9,7 +9,7 @@ import { GameserviceService } from '../gameservice.service';
 })
 export class DialogAddPlayerComponent implements OnInit {
 
-  allProfilePictures = ['cat.png', 'duck.png', 'rabbit.png', 'pig.png', 'elephant.png', 'sheep.png', 'teddy.png', 'unicorn.png'];
+  allProfilePictures = ['cat', 'duck', 'rabbit', 'pig', 'elephant', 'sheep', 'teddy', 'unicorn'];
 
   selectedIndex = -1;
 

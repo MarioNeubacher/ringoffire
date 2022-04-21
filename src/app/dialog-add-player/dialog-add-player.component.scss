@@ -1,6 +1,6 @@
 .img-animals {
-    height: auto; 
-    width: 35px; 
+    height: auto;
+    width: 35px;
     cursor: pointer;
     margin: 5px;
 
@@ -10,7 +10,66 @@
 }
 
 .img-duck {
-    background: url("https://icons8.com/icon/set/animals/office");
+    background: url("https://img.icons8.com/office/344/duck.png");
+    height: 50px;
+    background-repeat: no-repeat;
+    background-size: contain;
+}
+
+.img-pig {
+    background: url("https://img.icons8.com/office/2x/pig.png");
+    height: 50px;
+    background-repeat: no-repeat;
+    background-size: contain;
+}
+
+.img-unicorn {
+    background: url("https://img.icons8.com/office/2x/unicorn.png");
+    height: 50px;
+    background-repeat: no-repeat;
+    background-size: contain;
+}
+
+.img-wolf {
+    background: url("https://img.icons8.com/office/2x/wolf.png");
+    height: 50px;
+    background-repeat: no-repeat;
+    background-size: contain;
+}
+
+.img-teddy {
+    background: url("https://img.icons8.com/office/2x/teddy-bear.png");
+    height: 50px;
+    background-repeat: no-repeat;
+    background-size: contain;
+}
+
+.img-cat {
+    background: url("https://img.icons8.com/office/2x/cat-butt.png");
+    height: 50px;
+    background-repeat: no-repeat;
+    background-size: contain;
+}
+
+.img-sheep {
+    background: url("https://img.icons8.com/office/2x/sheep.png");
+    height: 50px;
+    background-repeat: no-repeat;
+    background-size: contain;
+}
+
+.img-elephant {
+    background: url("https://img.icons8.com/office/2x/elephant.png");
+    height: 50px;
+    background-repeat: no-repeat;
+    background-size: contain;
+}
+
+.img-rabbit {
+    background: url("https://img.icons8.com/office/2x/year-of-rabbit.png");
+    height: 50px;
+    background-repeat: no-repeat;
+    background-size: contain;
 }
 
 .profilePictureSelected {
@@ -20,9 +79,10 @@
     margin: 2.5px;
 }
 
-.option-field{
+.option-field {
     height: 75px !important;
-    div{
+
+    div {
         display: flex !important;
         align-items: center !important;
         justify-content: center !important;
@@ -30,7 +90,7 @@
 }
 
 @media (max-width: 300px) {
-    .div-name  {
+    .div-name {
         width: 90%;
     }
 }
