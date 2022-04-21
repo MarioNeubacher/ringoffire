@@ -10,11 +10,22 @@
     <!-- document.getElementById('').value -->
   </mat-form-field>
 
-  <div style="display: flex; flex-wrap: wrap; width: 200px; justify-content: center;">
+  <p>Please choose the animal of the player</p>
+  <mat-select style="background-color: #F5F5F5; border-radius: 10px; padding: 10px 0px" [(ngModel)]="gameVariable.profilePic">
+    <ng-container *ngFor="let profilePicture of allProfilePictures; let i = index">
+      <mat-option value="{{profilePicture}}" class="option-field">
+        <div>
+          <img src="assets/img/pictures/{{profilePicture}}">
+        </div>
+      </mat-option>
+    </ng-container>
+  </mat-select>
+
+  <!-- <div style="display: flex; flex-wrap: wrap; width: 200px; justify-content: center;">
     <img *ngFor="let profilePicture of allProfilePictures; let i = index" src="assets/img/pictures/{{profilePicture}}"
       (click)="selectProfilePicture(i)" [ngClass]="{ 'profilePictureSelected' : selectedIndex === i }"
       class="img-animals" ngDefaultControl [(ngModel)]="gameVariable.profilePic">
-  </div>
+  </div> -->
 
 </div>
 
@@ -22,5 +33,5 @@
   <button mat-button (click)="onNoClick()">No Thanks</button>
   <button mat-button (click)="clickOk()"
     [disabled]="gameVariable.name.length == 0 || !this.letterCheck.playerNameContainsLetters || gameVariable.game.player_images.length == 0"
-    [mat-dialog-close]="gameVariable.name && gameVariable.game.player_images" cdkFocusInitial>Ok</button>
+    [mat-dialog-close]="gameVariable.name && gameVariable.profilePic" cdkFocusInitial>Ok</button>
 </div>

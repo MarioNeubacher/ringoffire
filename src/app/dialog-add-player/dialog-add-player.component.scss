@@ -16,6 +16,15 @@
     margin: 2.5px;
 }
 
+.option-field{
+    height: 75px !important;
+    div{
+        display: flex !important;
+        align-items: center !important;
+        justify-content: center !important;
+    }
+}
+
 @media (max-width: 300px) {
     .div-name  {
         width: 90%;
