@@ -10,16 +10,22 @@
     <!-- document.getElementById('').value -->
   </mat-form-field>
 
-  <p>Please choose the animal of the player</p>
-  <mat-select style="background-color: #F5F5F5; border-radius: 10px; padding: 10px 0px" [(ngModel)]="gameVariable.profilePic">
-    <ng-container *ngFor="let profilePicture of allProfilePictures; let i = index">
-      <mat-option value="{{profilePicture}}" class="option-field">
-        <div>
-          <img src="assets/img/pictures/{{profilePicture}}">
-        </div>
-      </mat-option>
-    </ng-container>
-  </mat-select>
+  <mat-form-field>
+    <p>Please choose the animal of the player</p>
+    <mat-select [(ngModel)]="gameVariable.animal" style="background-color: #F5F5F5; border-radius: 10px; padding: 10px 0px">
+      <ng-container *ngFor="let profilePicture of allProfilePictures; let i = index">
+        <mat-option value="{{profilePicture}}" class="option-field">
+          <div>
+            <img src="assets/img/pictures/{{profilePicture}}">
+          </div>
+        </mat-option>
+      </ng-container>
+    </mat-select>
+  </mat-form-field>
+
+  <div class="img-duck">
+    test
+  </div>
 
   <!-- <div style="display: flex; flex-wrap: wrap; width: 200px; justify-content: center;">
     <img *ngFor="let profilePicture of allProfilePictures; let i = index" src="assets/img/pictures/{{profilePicture}}"
