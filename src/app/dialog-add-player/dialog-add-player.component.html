@@ -10,19 +10,14 @@
     <!-- document.getElementById('').value -->
   </mat-form-field>
 
-  <mat-form-field>
-    <p>Please choose the animal of the player</p>
-    <mat-select [(ngModel)]="gameVariable.animal"
-      style="background-color: #F5F5F5; border-radius: 10px; padding: 10px 0px"
-      [ngClass]="{ 'profilePictureSelected' : selectedIndex === i }">
-      <ng-container *ngFor="let profilePicture of allProfilePictures; let i = index">
-        <mat-option [value]="profilePicture" class="option-field">
-          <!-- <img src="assets/img/pictures/{{profilePicture}}"> -->
-          <div class="img-{{profilePicture}}" (click)="selectProfilePicture(i)"></div>
-        </mat-option>
-      </ng-container>
-    </mat-select>
-  </mat-form-field>
+  <p>Please choose an avatar</p>
+  <mat-button-toggle-group formControlName="selectedAvatar" aria-label="Select Avatar">
+
+    <mat-button-toggle class="avatar-btn" *ngFor="let avatar of avatars" value="{{ avatar }}">
+      <img src="assets/img/profile-pics/{{ avatar }}">
+    </mat-button-toggle>
+
+  </mat-button-toggle-group>
 
 </div>
 
