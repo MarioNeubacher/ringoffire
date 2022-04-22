@@ -2,7 +2,7 @@
 <h1 mat-dialog-title>Add new player</h1>
 
 <mat-dialog-content style="display: flex; flex-direction: column;">
-  
+
   <p>Please enter the name of the player</p>
   <mat-form-field class="div-name" appearance="fill">
     <mat-label>Name</mat-label>
@@ -10,9 +10,9 @@
   </mat-form-field>
 
   <p>Please choose an avatar</p>
-  <mat-button-toggle-group formControlName="selectedAvatar" aria-label="Select Avatar">
+  <mat-button-toggle-group style="border: 0px; flex-wrap: wrap; width: 400px;" aria-label="Select Avatar">
     <mat-button-toggle class="avatar-btn" *ngFor="let avatar of avatars" value="{{ avatar }}">
-      <img src="assets/img/profile-pics/{{ avatar }}">
+      <img src="assets/img/avatars/{{ avatar }}" [(ngModel)]="gameVariable.animal">
     </mat-button-toggle>
   </mat-button-toggle-group>
 
@@ -21,6 +21,6 @@
 <div mat-dialog-actions>
   <button mat-button (click)="onNoClick()">No Thanks</button>
   <button mat-button (click)="clickOk()"
-    [disabled]="gameVariable.name.length == 0 || !this.letterCheck.playerNameContainsLetters || gameVariable.game.player_images.length == 0"
-    [mat-dialog-close]="gameVariable.name && gameVariable.profilePic" cdkFocusInitial>Ok</button>
+    [disabled]="gameVariable.name.length == 0 || !this.letterCheck.playerNameContainsLetters || gameVariable.animal.length == 0"
+    [mat-dialog-close]="gameVariable.name && gameVariable.animal" cdkFocusInitial>Ok</button>
 </div>

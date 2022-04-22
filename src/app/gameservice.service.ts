@@ -17,7 +17,6 @@ export class GameserviceService {
 
   name: string = '';
   animal: string = '';
-  profilePic: string = '';
 
   constructor(
     private firestore: AngularFirestore

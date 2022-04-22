@@ -1,4 +1,5 @@
 import { Component, OnInit } from '@angular/core';
+import { FormGroup } from '@angular/forms';
 import { MatDialogRef } from '@angular/material/dialog';
 import { GameserviceService } from '../gameservice.service';
 
@@ -9,9 +10,10 @@ import { GameserviceService } from '../gameservice.service';
 })
 export class DialogAddPlayerComponent implements OnInit {
 
-  avatars = ['cat', 'duck', 'rabbit', 'pig', 'elephant', 'sheep', 'teddy', 'unicorn'];
+  avatars = ['cat.png', 'duck.png', 'rabbit.png', 'pig.png', 'elephant.png', 'sheep.png', 'teddy.png', 'unicorn.png'];
 
   selectedIndex = -1;
+  form: FormGroup;
 
   constructor(
     public dialogRef: MatDialogRef<DialogAddPlayerComponent>, 

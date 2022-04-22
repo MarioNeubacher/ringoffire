@@ -19,6 +19,7 @@ import { environment } from '../environments/environment';
 import { AngularFireModule } from '@angular/fire/compat';
 import { MatSelectModule } from '@angular/material/select';
 import { MatButtonToggleModule } from '@angular/material/button-toggle';
+import { ReactiveFormsModule } from '@angular/forms';
 /* import { provideFirebaseApp, initializeApp } from '@angular/fire/app';
 import { provideDatabase,getDatabase } from '@angular/fire/database';
 import { provideFirestore,getFirestore } from '@angular/fire/firestore';
@@ -41,14 +42,16 @@ import 'firebase/compat/firestore'; */
     MatButtonToggleModule,
     BrowserModule,
     MatSelectModule,
+    FormsModule,
+    ReactiveFormsModule,
     AppRoutingModule,
     BrowserAnimationsModule,
     //underneath imported from angular material library
-    MatButtonModule, 
-    MatIconModule, 
-    MatDialogModule, 
-    MatInputModule, 
-    FormsModule, 
+    MatButtonModule,
+    MatIconModule,
+    MatDialogModule,
+    MatInputModule,
+    FormsModule,
     MatCardModule, /* provideDatabase(() => getDatabase()), provideFirestore(() => getFirestore()), provideStorage(() => getStorage()) */
   ],
   providers: [],
