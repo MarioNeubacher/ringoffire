@@ -12,7 +12,7 @@
   <p>Please choose an avatar</p>
   <mat-button-toggle-group style="border: 0px; flex-wrap: wrap; width: 400px;" aria-label="Select Avatar">
     <mat-button-toggle class="avatar-btn" *ngFor="let avatar of avatars" value="{{ avatar }}">
-      <img src="assets/img/avatars/{{ avatar }}" [(ngModel)]="gameVariable.animal" name="fieldName" ngDefaultControl>
+      <img src="assets/img/avatars/{{ avatar }}" [(ngModel)]="gameVariable.animal" name="fieldName" ngDefaultControl> <!-- ng module get selected -->
     </mat-button-toggle>
   </mat-button-toggle-group>
 
