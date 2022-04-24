@@ -97,7 +97,7 @@ export class GameComponent implements OnInit {
       this.gameVariable.game.pickCardAnimation = true; //not possible to take card until timeout
       /*  console.log('New card' + this.currentCard);
        console.log('Game is', this.game); */
-       
+
       this.gameVariable.game.currentPlayer++;
       this.gameVariable.game.currentPlayer = this.gameVariable.game.currentPlayer % this.gameVariable.game.players.length; //% modulu only counts to max length
 
@@ -130,14 +130,23 @@ export class GameComponent implements OnInit {
   openDialog(): void {
     const dialogRef = this.dialog.open(DialogAddPlayerComponent);
 
-    dialogRef.afterClosed().subscribe((name: string) => { //from dialog-add-player.component.html ngModule //, profilePic: string
-      if (name && name.length > 0) {
-       /*  console.log(profilePic); */
-        this.gameVariable.game.players.push(name);
-        /* this.gameVariable.game.player_images.push(profilePic); */
-        this.gameVariable.saveGame(); 
+    dialogRef.afterClosed().subscribe((data) => {
+      console.log(data);
+      if (data) {
+        this.gameVariable.game.players.push({
+          'playerName': data.playerName,
+          'avatar': data.avatar
+        });
+        this.gameVariable.saveGame();
       }
     });
+
+   /*  dialogRef.afterClosed().subscribe((name: string) => { 
+      if (name && name.length > 0) {
+        this.gameVariable.game.players.push(name);
+        this.gameVariable.saveGame();
+      }
+    }); */
   }
 
   deletePlayer(index) {

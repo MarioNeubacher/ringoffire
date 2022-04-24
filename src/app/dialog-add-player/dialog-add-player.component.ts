@@ -1,7 +1,7 @@
 import { Component, OnInit } from '@angular/core';
-import { FormGroup } from '@angular/forms';
 import { MatDialogRef } from '@angular/material/dialog';
 import { GameserviceService } from '../gameservice.service';
+import { FormBuilder, FormGroup } from "@angular/forms";
 
 @Component({
   selector: 'app-dialog-add-player',
@@ -15,11 +15,16 @@ export class DialogAddPlayerComponent implements OnInit {
   selectedIndex = -1;
   form: FormGroup;
 
+  standardAvatar = this.avatars[0];
+
   constructor(
     public dialogRef: MatDialogRef<DialogAddPlayerComponent>, 
     public letterCheck: GameserviceService,
-    public gameVariable: GameserviceService
-    ) { }
+    public gameVariable: GameserviceService,
+    private formBuilder: FormBuilder
+    ) { 
+      this.form = this.formBuilder.group({ playerName: '', avatar: this.standardAvatar })
+    }
 
   ngOnInit(): void {
   }

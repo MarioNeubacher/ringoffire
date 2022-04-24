@@ -21,7 +21,6 @@
 
 <div mat-dialog-actions>
   <button mat-button (click)="onNoClick()">No Thanks</button>
-  <button mat-button (click)="clickOk()"
-    [disabled]="gameVariable.name.length == 0 || !this.letterCheck.playerNameContainsLetters || gameVariable.animal.length == 0"
-    [mat-dialog-close]="gameVariable.name && gameVariable.animal" cdkFocusInitial>Ok</button>
+  <button mat-button (click)="clickOk()" [disabled]="form.value.playerName.length==0||form.value.avatar==''"
+    [mat-dialog-close]="form.value">Ok</button>
 </div>
