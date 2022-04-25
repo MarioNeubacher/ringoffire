@@ -16,15 +16,14 @@ export interface DialogData {
 })
 export class PlayerComponent implements OnInit {
 
-  @Input() name; //game.html gives variable name for player array with [name]="player"
   @Input() playerActive: boolean = false; //from game.html to player.html
   @Input() player: any;
   @Input() game: Game;
 
   constructor(
     public gameVariable: GameserviceService,
-    public dialog: MatDialog,
-    @Inject(MAT_DIALOG_DATA) public data: DialogData) {  this.player = data; }
+    public dialog: MatDialog
+    ) { }
 
   ngOnInit(): void {
   }

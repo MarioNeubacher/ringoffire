@@ -132,10 +132,10 @@ export class GameComponent implements OnInit {
     dialogRef.afterClosed().subscribe((data) => {
       console.log(data);
       if (data) {
-        /* this.gameVariable.game.players.push({
-          'playerName': playerName,
-          'avatar': avatar
-        }); */
+        this.gameVariable.game.players.push({
+          'playerName': data.playerName,
+          'avatar': data.avatar
+        });
         this.gameVariable.saveGame();
       }
     });

@@ -1,8 +1,8 @@
 <div class="div-field">
 
     <!-- Active Player -->
-    <div id="id-activePlayer" [class.d-none]="gameVariable.game.players.length < 1">
-        <app-player [playerActive]="true" [name]="gameVariable.game.players[gameVariable.game.currentPlayer]"
+    <div *ngIf="gameVariable.game.players.length >= 2" id="id-activePlayer" [class.d-none]="gameVariable.game.players.length < 1">
+        <app-player [playerActive]="true" [player]="gameVariable.game.players[0]"
              class="player-position" > <!-- [image]="gameVariable.game.player_images[i]" -->
         </app-player>
         <mat-icon id="id-dropDown" (click)="toggleAllPlayers()" class="drop-down">arrow_drop_down</mat-icon>
@@ -11,7 +11,7 @@
     <!-- All Players -->
     <div id="id-allPlayers" *ngIf="togglePlayers" class="allPlayers">
         <app-player (click)="deletePlayer(i)" *ngFor="let player of gameVariable.game.players; let i = index;"
-             [name]="player" [ngStyle]="{'top.px': i * 90}" class="player-position"> <!-- [image]="game.player_images[i]" -->
+             [player]="player" [ngStyle]="{'top.px': i * 90}" class="player-position"> <!-- [image]="game.player_images[i]" -->
         </app-player>
     </div>
 
