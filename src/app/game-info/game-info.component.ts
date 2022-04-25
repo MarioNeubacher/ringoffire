@@ -1,5 +1,5 @@
 import { Component, Input, OnChanges, OnInit } from '@angular/core';
-import { Game } from 'src/models/game';
+import { Game } from 'models/game';
 import { GameserviceService } from '../gameservice.service';
 
 @Component({
