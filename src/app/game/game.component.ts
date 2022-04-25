@@ -25,8 +25,7 @@ export class GameComponent implements OnInit {
     private route: ActivatedRoute,
     private firestore: AngularFirestore,
     public dialog: MatDialog,
-    public gameVariable: GameserviceService
-  ) { }
+    public gameVariable: GameserviceService) { }
 
   /**
    * This function loads the functions init when website loads
@@ -133,10 +132,10 @@ export class GameComponent implements OnInit {
     dialogRef.afterClosed().subscribe((data) => {
       console.log(data);
       if (data) {
-        this.gameVariable.game.players.push({
+        /* this.gameVariable.game.players.push({
           'playerName': playerName,
           'avatar': avatar
-        });
+        }); */
         this.gameVariable.saveGame();
       }
     });

@@ -18,6 +18,8 @@ export class GameserviceService {
   name: string = '';
   animal: string = '';
 
+  avatars = ['cat.png', 'duck.png', 'rabbit.png', 'pig.png', 'elephant.png', 'sheep.png', 'teddy.png', 'unicorn.png'];
+
   constructor(
     private firestore: AngularFirestore
   ) { }

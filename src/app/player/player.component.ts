@@ -1,7 +1,8 @@
-import { Component, Input, OnInit } from '@angular/core';
+import { Component, Input, OnInit, Inject } from '@angular/core';
 import { MatDialog } from '@angular/material/dialog';
 import { Game } from 'src/models/game';
 import { GameserviceService } from '../gameservice.service';
+import {MAT_DIALOG_DATA} from '@angular/material/dialog';
 
 export interface DialogData {
   playerName: string;
@@ -22,8 +23,8 @@ export class PlayerComponent implements OnInit {
 
   constructor(
     public gameVariable: GameserviceService,
-    public dialog: MatDialog
-    ) { }
+    public dialog: MatDialog,
+    @Inject(MAT_DIALOG_DATA) public data: DialogData) {  this.player = data; }
 
   ngOnInit(): void {
   }

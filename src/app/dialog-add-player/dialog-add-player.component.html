@@ -1,8 +1,6 @@
-<!-- angular material dialog-overview-example-dialog.html -->
 <h1 mat-dialog-title>Add new player</h1>
 
 <mat-dialog-content style="display: flex; flex-direction: column;" [formGroup]="form">
-
   <p>Please enter the name of the player</p>
   <mat-form-field class="div-name" appearance="fill">
     <mat-label>Name</mat-label>
@@ -11,16 +9,15 @@
 
   <p>Please choose an avatar</p>
   <div class="avatar-radio">
-    <label *ngFor="let avatar of avatars;let i=index;">
+    <label *ngFor="let avatar of gameVariable.avatars;let i=index;">
       <input type="radio" name="avatar" [value]="avatar" formControlName="avatar">
       <img [class.checked]="form.value.avatar==avatar" src="assets/img/avatars/{{ avatar }}">
     </label>
   </div>
-
 </mat-dialog-content>
 
-<div mat-dialog-actions>
+<mat-dialog-actions>
   <button mat-button (click)="onNoClick()">No Thanks</button>
   <button mat-button (click)="clickOk()" [disabled]="form.value.playerName.length==0||form.value.avatar==''"
     [mat-dialog-close]="form.value">Ok</button>
-</div>
+</mat-dialog-actions>
