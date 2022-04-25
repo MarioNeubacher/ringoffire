@@ -1,8 +1,8 @@
 import { Component, Input, OnInit, Inject } from '@angular/core';
 import { MatDialog } from '@angular/material/dialog';
-import { Game } from 'src/models/game';
 import { GameserviceService } from '../gameservice.service';
 import {MAT_DIALOG_DATA} from '@angular/material/dialog';
+import { Game } from '../../models/game';
 
 export interface DialogData {
   playerName: string;

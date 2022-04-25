@@ -1,5 +1,4 @@
 import { Component, OnInit } from '@angular/core';
-import { Game } from 'src/models/game';
 import { MatDialog } from '@angular/material/dialog';
 import { DialogAddPlayerComponent } from '../dialog-add-player/dialog-add-player.component';
 import { GameserviceService } from '../gameservice.service';
@@ -33,7 +32,7 @@ export class GameComponent implements OnInit {
   ngOnInit(): void {
     this.gameVariable.newGame();
     this.route.params.subscribe((params) => {
-      console.log(params.id);
+     /*  console.log(params.id); */
       this.gameVariable.gameId = params.id; //set URL globally as var gameId
 
       this
@@ -42,7 +41,7 @@ export class GameComponent implements OnInit {
         .doc(this.gameVariable.gameId)
         .valueChanges()
         .subscribe((game: any) => {
-          console.log('Game update', game);
+          /* console.log('Game update', game); */
           this.gameVariable.game.currentPlayer = game.currentPlayer;
           this.gameVariable.game.playedCards = game.playedCards;
           this.gameVariable.game.players = game.players;
@@ -130,7 +129,6 @@ export class GameComponent implements OnInit {
     const dialogRef = this.dialog.open(DialogAddPlayerComponent);
 
     dialogRef.afterClosed().subscribe((data) => {
-      console.log(data);
       if (data) {
         this.gameVariable.game.players.push({
           'playerName': data.playerName,

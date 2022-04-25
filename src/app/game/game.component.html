@@ -11,7 +11,7 @@
     <!-- All Players -->
     <div id="id-allPlayers" *ngIf="togglePlayers" class="allPlayers">
         <app-player (click)="deletePlayer(i)" *ngFor="let player of gameVariable.game.players; let i = index;"
-             [player]="player" [ngStyle]="{'top.px': i * 90}" class="player-position"> <!-- [image]="game.player_images[i]" -->
+             [player]="player" [ngStyle]="{'top.px': i * 70}" class="player-position"> <!-- [image]="game.player_images[i]" -->
         </app-player>
     </div>
 
