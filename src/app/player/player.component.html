@@ -1,7 +1,7 @@
 <div class="player" [class.player-active]="playerActive">
     <img class="img-profile" [src]="'assets/img/avatars/' + player.avatar">
-    <span style="overflow: hidden;">
-        <span class="txt-player">{{ player.name }}</span> <!-- name from player.ts -->
+    <span style="overflow: hidden; width: 115px;">
+        <span class="txt-player">{{ player.playerName }}</span> <!-- name from player.ts -->
     </span>
     <img *ngIf="!playerActive" class="img-trash" src="assets/img/trash.png">
 </div>

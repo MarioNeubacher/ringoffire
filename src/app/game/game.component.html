@@ -2,7 +2,7 @@
 
     <!-- Active Player -->
     <div *ngIf="gameVariable.game.players.length >= 2" id="id-activePlayer" [class.d-none]="gameVariable.game.players.length < 1">
-        <app-player [playerActive]="true" [player]="gameVariable.game.players[0]"
+        <app-player [playerActive]="true" [player]="gameVariable.game.players[gameVariable.game.currentPlayer]"
              class="player-position" > <!-- [image]="gameVariable.game.player_images[i]" -->
         </app-player>
         <mat-icon id="id-dropDown" (click)="toggleAllPlayers()" class="drop-down">arrow_drop_down</mat-icon>
